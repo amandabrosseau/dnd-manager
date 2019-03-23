@@ -19,4 +19,21 @@ def roll_dice(sides, number):
     return result
 
 
+def parse_dice(dice_desc):
+    """ Takes a string that describes the dice, such as '4d10' and
+        returns the number of dice and number of die sides
 
+        Args: dice_desc - string describing the dice, ex "2d10" or '4D8'
+
+        Returns: a tuple (# of dice, # of die sides)
+    """
+    dice = dice_desc.lower().split('d')
+
+    try:
+        if len(dice) != 2 : raise ValueError
+        number = int(dice[0])
+        sides  = int(dice[1])
+        return number, sides
+    except:
+        raise ValueError("Dice descriptor must be in the format 'NdM' where 'N' is the number of dice \
+                          and 'M' is the number of die sides!")
