@@ -32,7 +32,7 @@ def parse_dice(dice_desc):
 
         Exceptions: ValueError when the input is ill-formatted
     """
-    found_d = dice_desc.find('d') == True
+    found_d = dice_desc.find('d')
     dice    = dice_desc.lower().split('d')
 
     try:
