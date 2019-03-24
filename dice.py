@@ -59,7 +59,10 @@ def dice_command(command):
     """
     split_cmd = command.split('+')
 
-    return sum([roll_dice(*parse_dice(cmd)) for cmd in split_cmd])
+    try:
+        return sum([roll_dice(*parse_dice(cmd)) for cmd in split_cmd])
+    except ValueError:
+        raise ValueError("Input should be similar to the format '1d8+10+4d10'")
 
 
 if __name__ == '__main__':
