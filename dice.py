@@ -2,6 +2,7 @@
 
 
 import random
+import sys
 
 
 def roll_dice(number, sides):
@@ -59,3 +60,7 @@ def dice_command(command):
     split_cmd = command.split('+')
 
     return sum([roll_dice(*parse_dice(cmd)) for cmd in split_cmd])
+
+
+if __name__ == '__main__':
+    print(dice_command(sys.argv[1]))
